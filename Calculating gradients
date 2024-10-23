@@ -1,0 +1,30 @@
+so it'd work like this:
+```py
+## forward propagation
+
+# layer 1
+z1 = w1 @ x
+a1 = f1(z1)
+
+# layer 2
+z2 = w2 @ a1
+a2 = f2(z2)
+
+y = a2
+
+## backpropagation
+
+# We first calculate dE/dy, which depends on the error function.
+y_grad = error_function_gradient(y, true_y)
+tmp2 = y_grad * f2_derivative(z2)  # tmp is the (dE/db * f'(z) vector that appears in the formulas)
+# then:
+w2_grad = tmp2 @ a1.T
+a1_grad = w2.T @ tmp2
+
+# and the first layer stuff:
+tmp1 = a1_grad * f1_derivative(z1)
+w1_grad = tmp1 @ x.T
+# we don't bother calculating the gradient with respect
+# to the first layer's input, which'd be dE/dx,
+# because we don't need to backpropagate further.
+```
