@@ -66,7 +66,7 @@ class NeuralNetwork:
 
         self.errors = []
 
-        self.generations = list(range(self.gens))
+        self.generations = list(range(gens))
 
         startTime = time.time()
 
