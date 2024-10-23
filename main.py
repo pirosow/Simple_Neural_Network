@@ -6,6 +6,6 @@ nn.initNn(10, 4, 1)
 
 nn.fit()
 
-nn.plotTraining()
-
 print(f"Time taken: {nn.fitTime} seconds")
+
+nn.plotTraining()
