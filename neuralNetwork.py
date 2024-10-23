@@ -75,7 +75,7 @@ class NeuralNetwork:
 
             gradient2, gradient1 = self.getGradients(x, y, z1, z2, a1, a2)
 
-            self.updateWeights(gradient1, gradient2, lr)
+            self.updateWeights(gradient1, gradient2, np.array([lr]))
 
             self.errors.append(squaredError(a2, y))
 
