@@ -57,7 +57,7 @@ class NeuralNetwork:
         self.w2 -= gradient2 * lr
 
 
-    def fit(self, lr, gens):
+    def fit(self, lr=0.1, gens=1000):
         x = np.random.random((self.shape["inputs"],))
 
         y = np.array([1])
