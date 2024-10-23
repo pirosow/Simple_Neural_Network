@@ -4,10 +4,8 @@ import matplotlib.pyplot as plt
 from neuralNetworkFunctions import *
 
 class NeuralNetwork:
-    def __init__(self, lr, gens):
-        self.lr = np.array([lr])
-        self.gens = gens
-
+    def __init__(self):
+        pass
 
     def initNn(self, xLength, l1, outLength):
         self.w1 = np.random.random((l1, xLength))
@@ -54,12 +52,12 @@ class NeuralNetwork:
         return gradient2, gradient1
 
 
-    def updateWeights(self, gradient1, gradient2):
+    def updateWeights(self, gradient1, gradient2, lr):
         self.w1 -= gradient1 * self.lr
         self.w2 -= gradient2 * self.lr
 
 
-    def fit(self):
+    def fit(self, lr gens):
         print(f"Training for {self.gens} generations...")
 
         x = np.random.random((self.shape["inputs"],))
@@ -72,12 +70,12 @@ class NeuralNetwork:
 
         startTime = time.time()
 
-        for _ in range(self.gens):
+        for _ in range(gens):
             z1, z2, a1, a2 = self.forward(x)
 
             gradient2, gradient1 = self.getGradients(x, y, z1, z2, a1, a2)
 
-            self.updateWeights(gradient1, gradient2)
+            self.updateWeights(gradient1, gradient2, lr)
 
             self.errors.append(squaredError(a2, y))
 
