@@ -57,7 +57,7 @@ class NeuralNetwork:
         self.w2 -= gradient2 * self.lr
 
 
-    def fit(self, lr gens):
+    def fit(self, lr, gens):
         print(f"Training for {self.gens} generations...")
 
         x = np.random.random((self.shape["inputs"],))
