@@ -58,7 +58,7 @@ class NeuralNetwork:
 
 
     def fit(self, lr, gens):
-        print(f"Training for {self.gens} generations...")
+        print(f"Training for {gens} generations...")
 
         x = np.random.random((self.shape["inputs"],))
 
