@@ -53,8 +53,8 @@ class NeuralNetwork:
 
 
     def updateWeights(self, gradient1, gradient2, lr):
-        self.w1 -= gradient1 * self.lr
-        self.w2 -= gradient2 * self.lr
+        self.w1 -= gradient1 * lr
+        self.w2 -= gradient2 * lr
 
 
     def fit(self, lr, gens):
