@@ -2,7 +2,7 @@ from neuralNetwork import NeuralNetwork
 
 nn = NeuralNetwork()
 
-nn.initNn(10, 4, 1)
+nn.initNn(10, 4, 2)
 
 nn.fit(lr=0.1, gens=10000)
 
