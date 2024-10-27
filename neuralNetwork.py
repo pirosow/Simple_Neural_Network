@@ -41,7 +41,7 @@ class NeuralNetwork:
 
         a1 = a1.reshape(4, 1)
 
-        gradient2 = np.dot(delta2, a1.T)
+        gradient2 = np.dot(delta2.reshape(self.shape["outputs"], 1), a1.T)
         a1_grad = np.dot(self.w2.T, delta2)
 
         delta1 = a1_grad * reluDerivative(z1)
